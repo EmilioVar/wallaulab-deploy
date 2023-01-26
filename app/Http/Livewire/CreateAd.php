@@ -63,26 +63,22 @@ class CreateAd extends Component
             ->ads()
             ->save($ad);
 
-// guardo cada imagen en el db y en el storage
+        // guardo cada imagen en el db y en el storage
         if (count($this->images)) {
             $newFileName = "ads/$ad->id";
             foreach ($this->images as $image) {
                 $newImage = $ad->images()->create([
                     'path' => $image->store($newFileName, 'public'),
                 ]);
-                
-Bus::chain([
-    new GoogleVisionRemoveFaces($newImage->id),
-    new ResizeImage($newImage->path,400,300),
-    new GoogleVisionSafeSearchImage($newImage->id),
-    new GoogleVisionLabelImage($newImage->id)
-])->dispatch();
+
+                Bus::chain([new ResizeImage($newImage->path, 400, 300)])->dispatch();
             }
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
 
         session()->flash('message', 'success');
         $this->cleanForm();
+        $this->emit('adCreated');
     }
 
     public function updated($propertyName)

@@ -67,14 +67,15 @@
                                 </ul>
                             </li>
                             @if (Auth::user()->is_revisor)
-                                <li class="d-flex align-items-center">
+                                <livewire:ad-revisor-count />
+                                {{-- <li class="d-flex align-items-center">
                                     <a href="{{ route('revisor.home') }}">
                                         <span class="fs-7 badge rounded-pill bg-danger">
                                             <i class="bi bi-bell"></i>
                                             {{ \App\Models\Ad::ToBeRevisionedCount() }}
                                         </span>
                                     </a>
-                                </li>
+                                </li> --}}
                             @endif
                         @endguest
                         <div class="d-flex justify-content-center align-items-center flex-lg-row mx-3">

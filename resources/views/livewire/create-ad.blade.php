@@ -25,7 +25,6 @@
     @endif
     <h1>{{ __('Nuevo Anuncio') }}</h1>
     <p class="alert alert-warning"><i class="bi bi-exclamation-triangle-fill"> Pagina de muestra, ¡no introducir datos reales!</p>
-    <div class="alert alert-info">
         <ul>
             <p>Características:</p>
             <li>Validación de datos dinámica durante la introducción de datos</li>

@@ -10,6 +10,9 @@
                     <div class="card-body">
                         <livewire:create-ad />
                     </div>
+                    <div class="d-flex justify-content-center my-3"> 
+                        <a class="btn btn-danger" href="{{route('revisor.make',$user)}}">SOLICITAR SER REVISOR</a>
+                    </div>
                 </div>
             </div>
         </div>

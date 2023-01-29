@@ -8,7 +8,7 @@
                 console.log('funciona!')
                 Swal.fire(
                     '¡Felicidades!',
-                    'Anuncio subido correctamente. <br><br>Para poder mostrarlo al publico el anuncio debe ser aceptado por un revisor. En este demo, para que puedas ser revisor, tienes un botón bajo el formulario que pone solicitar ser revisor. Haz click y continua los pasos siguientes 🚀',
+                    'Anuncio subido correctamente. <br><br>Para poder mostrarlo al publico el anuncio debe ser aceptado por un revisor. En este demo vamos a simular que fueras revisor. Para que puedas ser revisor, tienes un botón bajo el formulario que pone solicitar ser revisor. Haz click y continua los pasos siguientes 🚀',
                     'success'
                 )
             </script>

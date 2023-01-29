@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Ad;
+use App\Models\User;
+
+use App\Mail\BecomeRevisor;
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-
-use App\Mail\BecomeRevisor;
+use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -42,5 +44,13 @@ class RevisorController extends Controller
         return redirect()
             ->route('home')
             ->withMessage(['type' => 'success', 'text' => 'Solicitud enviada con éxito, pronto sabrás algo, gracias!']);
+    }
+
+    public function makeRevisor(User $user)
+    {
+        Artisan::call('wallaulab:makeUserRevisor', ['email'=>$user->email]);
+        return redirect()
+            ->route('home')
+            ->withMessage(['type' => 'success', 'text' => '¡Ya eres revisor! 🎉🎉 Ahora puedes entrar en el panel de revisor y aceptar los anuncios subidos. En la campana te aparecen los anuncios pendientes, ya puedes ir revisando 🚀']);
     }
 }

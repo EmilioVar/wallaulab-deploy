@@ -6,10 +6,10 @@
             <div class="col-12">
                 <div class="d-flex flex-column align-items-center ">
                     <div class="form-content w-50 justify-content-center mb-5 pb-5">
-                        <p class="alert alert-warning my-2"> Esta web es una demo, <span class="fw-bold">¡no introducir datos reales!</p>
+                        <p class="alert alert-warning my-2"><i class="bi bi-exclamation-triangle-fill"></i> Esta web es una demo, <span class="fw-bold">¡no introducir datos reales!</p>
                         <!--FORM TITLE -->
                         <div class="section-title">
-                            <h2 class="form-title space-around">{{ __('Crear tu cuenta') }}
+                            <h2 class="form-title space-around">{{ __('Crear tu cuenta') }}r
                             </h2>
                         </div>
                         @if ($errors->any())

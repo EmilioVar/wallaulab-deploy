@@ -11,7 +11,6 @@
     <title>{{$title ?? 'Rapido.es'}}</title>
 
     @vite(['resources/css/app.css'])
-    @vite(['resources/js/bootstrap.js'])
 
     @livewireStyles
     {{$style ?? ''}}
@@ -28,7 +27,6 @@
     <x-footer />
     @livewireScripts
     @vite(['resources/js/app.js'])
-    @vite(['resources/js/logout.js'])
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
     {{$script ?? ''}}
 </body>

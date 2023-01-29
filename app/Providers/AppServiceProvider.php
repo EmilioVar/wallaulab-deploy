@@ -26,10 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /* try {
             $categories= Category::all();
             View::share('categories', $categories);
-        }   catch (\Throwable $th) {
+        /*}   catch (\Throwable $th) {
                 dump("ALERT: Recuerda lanzar las migrations cuando acabes el clone.");
             } */
             Paginator::useBootstrapFive();

@@ -8,7 +8,7 @@
                 console.log('funciona!')
                 Swal.fire(
                     '¡Felicidades!',
-                    'Anuncio subido correctamente',
+                    'Anuncio subido correctamente. <br><br>Para poder mostrarlo al publico el anuncio debe ser aceptado por un revisor. En este demo, para que puedas ser revisor, tienes un botón bajo el formulario que pone solicitar ser revisor. Haz click y continua los pasos siguientes 🚀',
                     'success'
                 )
             </script>
@@ -24,6 +24,14 @@
         @endif
     @endif
     <h1>{{ __('Nuevo Anuncio') }}</h1>
+    <p class="alert alert-warning"><i class="bi bi-exclamation-triangle-fill"> Pagina de muestra, ¡no introducir datos reales!</p>
+    <div class="alert alert-info">
+        <ul>
+            <p>Características:</p>
+            <li>Validación de datos dinámica durante la introducción de datos</li>
+            <li>No refresca la página mediante la tecnología de livewire</li>
+            <li>Los anuncios subidos no se muestran al público hasta que un revisor los apruebe</li>
+    </div>
     <form wire:submit.prevent="store">
         @csrf
         <div class="mb-3">

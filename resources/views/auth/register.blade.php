@@ -10,9 +10,7 @@
                         <!--FORM TITLE -->
                         <div class="section-title">
                             <h2 class="form-title space-around">{{ __('Crear tu cuenta') }}
-                                <!-- <span> Rapido.es</span> -->
                             </h2>
-                            <!-- <p>Ut possimus qui ut temporibus culpa velit autem.</p> -->
                         </div>
                         @if ($errors->any())
                             <div class="alert alert-danger">

@@ -59,6 +59,9 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li class="dropdown-item">
+                                        <a id="userDashboard" class="dropdown-item" href="{{ route('user.dashboard') }}">{{ __('Panel') }}</a>
+                                    </li>
+                                    <li class="dropdown-item">
                                         <form id="logoutForm" action="{{ route('logout') }}" method="POST">
                                             @csrf
                                         </form>

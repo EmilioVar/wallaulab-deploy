@@ -3,14 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import '~bootstrap-icons/font/bootstrap-icons';
 
-*{
+* {
     font-family: 'Poppins', sans-serif;
 }
 
+/* footer always in bottom */
 html {
     position: relative;
     min-height: 100%;
-  }
+}
 
 body {
     overflow-x: hidden;
@@ -27,36 +28,60 @@ body {
     height: 150px;
 }
 
+/* Upload button */
+
+#uploadButton {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #0086d2;
+    border-radius: 50px;    
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 5%;
+    z-index: 1;
+    transition: .5s;
+}
+
+#uploadButton a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#uploadButton::after {
+content: "súbelo";
+position: absolute;
+top: 100%;
+}
+
 /* CALL TO ACTION */
 
-.call-to-action {background:#0086d2; padding:40px 0;}
+.call-to-action {
+    background: #0086d2;
+    padding: 40px 0;
+}
 
-.call-to-action  h1{
-    text-transform:uppercase;
-    color:#fff;
-    font-family:Arial;
-    font-size:40px;
-    }
+.call-to-action h1 {
+    text-transform: uppercase;
+    color: #fff;
+    font-family: Arial;
+    font-size: 40px;
+}
 
 .call-to-action .btn {
     border-radius: 5px;
     margin: 21px 0 0 0;
-    font-weight:700;
+    font-weight: 700;
 }
 
 .call-to-action .btn.btn-white {
     background: #fff;
     color: #666;
     border-bottom: 4px solid #ddd;
-}
-
-@media (max-width: 768px) {
-    .m-text-center {text-align:center;}
-    .call-to-action h1{font-size:20px;}
-}
-@media (max-width: 1024px) {
-    .m-text-center {text-align:center;}
-    .call-to-action h1{font-size:25px;}
 }
 
 .box-icon {
@@ -70,21 +95,26 @@ body {
 }
 
 /* REVISOR GOOGLE_API ICONS */
-.VERY_UNLIKELY{
+.VERY_UNLIKELY {
     color: greenyellow
 }
+
 .UNLIKELY {
     color: green
 }
+
 .POSSIBLE {
     color: orange;
 }
+
 .LIKELY {
     color: orangered;
 }
-.VERY_LIKELY{
+
+.VERY_LIKELY {
     color: red;
 }
+
 .UNKNOWN {
     color: grey;
 }

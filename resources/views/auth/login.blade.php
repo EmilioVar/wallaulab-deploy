@@ -32,9 +32,11 @@
                         <div class="validate"></div>
                     </div>
                     <!--Button-Login-->
-                    <button type="submit" class="btn btn-primary">
-                        {{__('Entrar')}}
-                    </button>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">
+                            {{__('Entrar')}}
+                        </button>
+                    </div>
                 </form>
                 
                 <p class="my-3">{{__('¿Aún no eres de los nuestros?')}}<a class="btn btn-info btn-sm ms-2" href="{{route('register')}}">{{__('¡Registrate!')}}</a> </p>

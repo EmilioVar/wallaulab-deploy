@@ -1,14 +1,14 @@
 <x-layout>
     <x-slot name='title'> Wallaulab - Homepage </x-slot>
+    <div id="uploadButton">
+        <a href="{{ Route('ads.create') }}"><i class="bi bi-plus-lg"></i></a>
+    </div>
     <section>
         <img src="/media/bienvenido-a-wallaulab-banner.png" class="img-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 text-right m-text-center">
-                    <h1>{{ __('¿Tienes un producto y no sabes qué hacer con él?') }}</h1>
-                </div>
-                <div class="col-md-4 col-sm-4 m-text-center">
-                    <a class="box-icon btn btn-success" href="{{ Route('ads.create') }}">{{ __('¡SÚBELO!') }}</a>
+                    <h1>{{ __('Últimos anuncios añadidos') }}:</h1>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                     @if ($ad->images()->count() > 0)
                     <img src="{{ $ad->images()->first()->getUrl(400,300) }}" class="card-img-top" alt="...">
                     @else
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <img src="https://picsum.photos/400/300?{{ $loop->index }}" class="card-img-top" alt="...">
                     @endif
                     <div class="card-body">
                         <h5 class="card-title"> {{ $ad->title }}</h5>

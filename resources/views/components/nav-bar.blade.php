@@ -59,10 +59,13 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li class="dropdown-item">
+                                        <a id="userDashboard" class="dropdown-item" href="{{ route('user.dashboard') }}"><i class="bi bi-person"></i> {{ __('Panel') }}</a>
+                                    </li>
+                                    <li class="dropdown-item">
                                         <form id="logoutForm" action="{{ route('logout') }}" method="POST">
                                             @csrf
                                         </form>
-                                        <a id="logoutBtn" class="dropdown-item" href="#">{{ __('Salir') }}</a>
+                                        <a id="logoutBtn" class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i> {{ __('Salir') }}</a>
                                     </li>
                                 </ul>
                             </li>

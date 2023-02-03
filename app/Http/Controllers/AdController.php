@@ -23,4 +23,9 @@ class AdController extends Controller
     public function show(Ad $ad){
         return view("ad.show", compact('ad'));
     }
+
+    public function delete(Ad $ad) {
+        $ad->delete();
+        return back()->with('¡Anuncio eliminado correctamente!');
+    }
 }

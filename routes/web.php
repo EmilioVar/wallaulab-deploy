@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
 
@@ -20,15 +21,26 @@ use App\Http\Controllers\RevisorController;
 
 Route::get('/', [PublicController::class, 'index'])->name('home');
 
+/* ADS */
+/* Create Ads */
 Route::get('/ads/create', [AdController::class,'create'])->name('ads.create');
+/* Delete Ad */
+Route::delete('/ads/delete/{ad}', [AdController::class,'delete'])->name('ad.destroy');
+/* Category Ads */
 Route::get('/category/{category:name}/ads', [PublicController::class,'adsByCategory'])->name('category.ads');
-
+/* Show Ad */
 Route::get('/ads/{ad}', [AdController::class,'show'])->name("ads.show");
 
+/* Become Revisor */
 Route::get('revisor/become', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('revisor.become');
-
+/* Make Revisor */
 Route::get('revisor/{user}/make',[RevisorController::class,'makeRevisor'])->middleware('auth')->name('revisor.make');
 
+/** Middlewares
+ * Accept Ads
+ * Reject Ads
+ * Revisor Dashboard
+ */
 Route::middleware(['isRevisor'])->group(function () {
     Route::patch('/revisor/ad/{ad}/accept',[RevisorController::class,'acceptAd'])->name('revisor.ad.accept');
     Route::patch('/revisor/ad/{ad}/reject',[RevisorController::class,'rejectAd'])->name('revisor.ad.reject');
@@ -42,3 +54,7 @@ Route::post('/locale/{locale}', [PublicController::class,'setLocale'])->name('lo
 /* search */
 
 Route::get("/search",[PublicController::class,'search'])->name('search');
+
+/* User */
+/* Dashboard */
+Route::get("/dashboard",[UserController::class,'index'])->name('user.dashboard');

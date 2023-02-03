@@ -24,6 +24,8 @@ Route::get('/', [PublicController::class, 'index'])->name('home');
 /* ADS */
 /* Create Ads */
 Route::get('/ads/create', [AdController::class,'create'])->name('ads.create');
+/* Delete Ad */
+Route::delete('/ads/delete/{ad}', [AdController::class,'delete'])->name('ad.destroy');
 /* Category Ads */
 Route::get('/category/{category:name}/ads', [PublicController::class,'adsByCategory'])->name('category.ads');
 /* Show Ad */

@@ -55,7 +55,7 @@
                             <li class="nav-item dropdown mx-2">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    {{ Auth::user()->name }}
+                                   Hola {{ Auth::user()->name }}!
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li class="dropdown-item">
@@ -93,14 +93,6 @@
                             <li class="nav-item mx-2">
                                 <x-locale lang="es" country="es" />
                             </li>
-                        </div>
-                        <div>
-                            <form action="{{ route('search') }}" method="GET" class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                                    name="q">
-                                <button class="btn btn-outline-success" type="submit"><i
-                                        class="bi bi-search"></i></button>
-                            </form>
                         </div>
             </ul>
         </div>

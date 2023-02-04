@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* z-index to SEARCH */
+#search {
+    z-index: 800;
+}
+
 /* footer always in bottom */
 html {
     position: relative;
@@ -56,13 +61,6 @@ body {
 content: "súbelo";
 position: absolute;
 top: 100%;
-}
-
-/* CALL TO ACTION */
-
-.call-to-action {
-    background: #0086d2;
-    padding: 40px 0;
 }
 
 .call-to-action h1 {

@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     public function index() {
         $ads = Ad::where('user_id', '=', Auth::user()->id)->paginate(9);
-        return view('user.dashboard', compact('ads'));
+        $adsCount = Ad::where('user_id', '=', Auth::user()->id)->count();
+        return view('user.dashboard', compact('ads','adsCount'));
     }
 }

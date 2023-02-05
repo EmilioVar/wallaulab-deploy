@@ -13,7 +13,7 @@ class Ad extends Model
 {
     use HasFactory, Searchable;
 
-    protected $fillable = ['title', 'body', 'price'];
+    protected $fillable = ['title', 'body', 'price', 'image_path'];
 
     static public function ToBeRevisionedCount()
     {

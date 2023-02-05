@@ -24,6 +24,31 @@ class AdController extends Controller
         return view("ad.show", compact('ad'));
     }
 
+    public function edit(Ad $ad) {
+        return view('ad.edit', compact('ad'));
+    }
+
+    public function update(Request $request, $ad) {
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required',
+            'body' => 'nullable',
+            'image' => 'nullable|image|max:2048'
+        ]);
+
+        $image = $request->file('image');
+        $image_path = $image->store('public/ads');
+
+        $ad = Ad::findorFail($ad);
+        $ad->update([
+            'title' => $request->title,
+            'price' => $request->price,
+            'body' => $request->body,
+            'image_path' => $image_path
+        ]);
+        return back();
+    }
+
     public function delete(Ad $ad) {
         $ad->delete();
         return back()->with('¡Anuncio eliminado correctamente!');

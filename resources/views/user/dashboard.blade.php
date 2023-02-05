@@ -28,6 +28,8 @@
                             </div>
                             <a href="{{ route('ads.show', $ad) }}" class="btn btn-primary">{{ __('Mostrar Más') }}
                             </a>
+                            <a href="{{ route('ads.edit', $ad) }}" class="btn btn-primary">{{ __('Editar') }}
+                            </a>
                             <button onclick="swal()" class="btn btn-danger" type="submit">borrar</button>
                             <form id="adDestroy" action="{{ route('ad.destroy', $ad) }}" method="post">
                                 @csrf

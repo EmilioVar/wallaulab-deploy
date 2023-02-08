@@ -40,28 +40,24 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #0086d2;
-    border-radius: 50px;    
+    background-color: #0085d2df;
+    border-radius: 10px;    
     border: 1px solid white;
     position: fixed;
-    width: 50px;
-    height: 50px;
-    bottom: 30px;
-    right: 5%;
+    width: 200px;
+    bottom: 0;
+    padding: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
     transition: .5s;
 }
 
 #uploadButton a {
-    font-size: 1.5em;
+    font-size: 1em;
     text-decoration: none;
     color: black;
     font-weight: bold;
-}
-#uploadButton::after {
-content: "súbelo";
-position: absolute;
-top: 100%;
 }
 
 .call-to-action h1 {

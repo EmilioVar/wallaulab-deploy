@@ -2128,15 +2128,15 @@
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-e9310022.css",
+    "file": "assets/app-e7901e4a.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-e9310022.css"
+      "assets/app-e7901e4a.css"
     ],
-    "file": "assets/app-6c1b35d0.js",
+    "file": "assets/app-ea946c8b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

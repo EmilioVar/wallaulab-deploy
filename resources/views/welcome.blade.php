@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot name='title'> Wallaulab - Homepage </x-slot>
     <div id="uploadButton">
-        <a href="{{ Route('ads.create') }}"><i class="bi bi-plus-lg"></i></a>
+        <a href="{{ Route('ads.create') }}"><i class="bi bi-plus-lg">Subir Artículo</i></a>
     </div>
     <!-- form -->
     <section id="search" class="p-2 container-fluid bg-white p-1 d-flex flex-column justify-content-center position-sticky top-0">
@@ -65,4 +65,20 @@
             </div>
             @endforelse
     </section>
+    <x-slot:script>
+        <script>
+            let uploadButton = document.getElementById('uploadButton');
+
+            window.addEventListener('scroll', (event) => {
+                console.log('si que va')
+                console.log(window.scrollY)
+                if(window.scrollY >= 1000) {
+                    uploadButton.style.opacity = '0';
+                }
+                if(window.scrollY <= 1000) {
+                    uploadButton.style.opacity = '1';
+                }
+            })
+        </script>
+    </x-slot>
 </x-layout>

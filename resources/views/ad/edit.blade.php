@@ -34,20 +34,23 @@
                                 @endif
                             @endif
                             <h1>{{ __('Editar Anuncio') }}</h1>
-                            <p class="alert alert-warning"><i class="bi bi-exclamation-triangle-fill"></i> Pagina de muestra, ¡no introducir datos reales!</p>
+                            <p class="alert alert-warning"><i class="bi bi-exclamation-triangle-fill"></i> Pagina de
+                                muestra, ¡no introducir datos reales!</p>
                             <div>
                                 <ul class="alert alert-info">
                                     <p>Características:</p>
                                     <li>Validación de datos dinámica durante la introducción de datos</li>
                                     <li>No refresca la página mediante la tecnología de livewire</li>
-                                    <li>Los anuncios subidos no se muestran al público hasta que un revisor los apruebe</li>
+                                    <li>Los anuncios subidos no se muestran al público hasta que un revisor los apruebe
+                                    </li>
                             </div>
-                            <form method="post" action="{{ route ('ads.update', $ad) }}" enctype="multipart/form">
+                            <form method="post" action="{{ route('ads.update', $ad) }}" enctype="multipart/form">
                                 @csrf
                                 @method('PUT')
                                 <div class="mb-3">
                                     <label for="title" class="form-label">{{ __('Título') }}</label>
-                                    <input name="title" type="text" value="{{ $ad->title }}" class="form-control 
+                                    <input name="title" type="text" value="{{ $ad->title }}"
+                                        class="form-control 
                                 @error('title') is-invalid @enderror">
                                     @error('title')
                                         {{ $message }}
@@ -56,7 +59,8 @@
                                 <div class="mb-3">
                                     <label for="category" class="form-label">{{ __('Categoría') }}</label>
                                     <select name="category" class="form-control">
-                                        <option value="{{ $ad->category }}" @error('category') is-invalid @enderror>{{ $ad->category->name }}
+                                        <option value="{{ $ad->category }}" @error('category') is-invalid @enderror>
+                                            {{ $ad->category->name }}
                                         </option>
                                         @error('category')
                                             {{ $message }}
@@ -64,18 +68,19 @@
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
-                        
+
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">{{ __('Precio') }}</label>
-                                    <input name="price" value="{{ $ad->price }}" type="number" class="form-control 
+                                    <input name="price" value="{{ $ad->price }}" type="number"
+                                        class="form-control 
                                 @error('price') is-invalid @enderror">
                                     @error('price')
                                         {{ $message }}
                                     @enderror
                                 </div>
-                        
+
                                 <div class="mb-3">
                                     <label for="body" class="form-label">{{ __('Descripción') }}</label>
                                     <textarea name="body" cols="30" rows="15"
@@ -89,47 +94,22 @@
                                 <!-- Image Add -->
 
                                 @foreach ($ad->images as $image)
-                                <img src="{{ $image->getUrl(400,300) }}" class="d-block w-100" alt="...">
-                                </div>
-                        @endforeach
-                                
-                                <div class="mb-3">
-                                    <input type="file" name="image" multiple
-                                        class="form-control shadow @error('temporary_images.*') is-invalid @enderror">
-                                    @error('temporary_images.*')
-                                        <p class="text-danger mt-2">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                        
-                                @if (!empty($images))
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p>{{ __('Vista previa') }}:</p>
-                                            <div class="row">
-                                                @foreach ($images as $key => $image)
-                                                    <div class="col-12 col-md-4">
-                                                        <img src="{{ $image->temporaryUrl() }}" alt="" class="img-fluid">
-                                                        <button type="button" class="btn btn-danger"
-                                                            wire:click="removeImage({{ $key }})">{{ __('Eliminar') }}</button>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                        
-                                <!-- button -->
-                                <div class="container d-flex justify-content-center my-3">
-                                    <button id="adCreate" type="submit" class="box-icon btn btn-info">{{ __('Actualizar') }}<box-icon
-                                            type='solid' name='save'></box-icon>
-                                    </button>
-                                </div>
-                            </form>
+                                    <img src="{{ $image->getUrl(400, 300) }}" class="d-block w-100" alt="...">
+                                @endforeach
                         </div>
+                        
+                        <!-- button -->
+                        <div class="container d-flex justify-content-center my-3">
+                            <button id="adCreate" type="submit" class="box-icon btn btn-info">{{ __('Actualizar') }}
+                                <box-icon type='solid' name='save'></box-icon>
+                            </button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </x-layout>

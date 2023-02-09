@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 my-3">
                 <div><b>{{__("Título")}}:</b> {{$ad->title}}</div>
                 <div><b> {{__("Precio")}}:</b> {{$ad->price}}</div>
                 <div><b> {{__("Descripción")}}:</b> {{$ad->body}}</div>

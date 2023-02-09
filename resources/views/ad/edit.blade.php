@@ -93,9 +93,9 @@
                                 </div>
                                 <!-- Image Add -->
 
-                                @foreach ($ad->images as $image)
+                                {{-- @foreach ($ad->images as $image)
                                     <img src="{{ $image->getUrl(400, 300) }}" class="d-block w-100" alt="...">
-                                @endforeach
+                                @endforeach --}}
                         </div>
                         
                         <!-- button -->

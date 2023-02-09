@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 text-right m-text-center">
-                    <h1>{{ __('Últimos anuncios añadidos') }}:</h1>
+                    <h1>{{ __('Últimos 6 anuncios añadidos') }}:</h1>
                 </div>
             </div>
         </div>

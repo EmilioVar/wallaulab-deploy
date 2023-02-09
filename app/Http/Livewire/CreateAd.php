@@ -92,6 +92,7 @@ class CreateAd extends Component
         $this->body = '';
         $this->category = '';
         $this->price = '';
+        $this->images = [];
     }
 
     public function updatedTemporaryImages()

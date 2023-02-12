@@ -31,7 +31,8 @@ class AdController extends Controller
 
     public function edit(Ad $ad)
     {
-        return view('ad.edit', compact('ad'));
+        $images = $ad->images()->get('path');
+        return view('ad.edit', compact('ad','images'));
     }
 
     public function update(Request $request, $ad)

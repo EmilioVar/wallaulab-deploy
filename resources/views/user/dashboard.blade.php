@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <img src="{{ Auth::user()->avatar }}" width="200px">
                 <h2>Tienes subidos {{ $adsCount }} anuncios 🎉</h2>
             </div>
             @forelse($ads as $ad)

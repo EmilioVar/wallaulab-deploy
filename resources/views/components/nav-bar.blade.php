@@ -55,7 +55,7 @@
                             <li class="nav-item dropdown mx-2">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                   Hola {{ Auth::user()->name }}!
+                                  <img width="30px" class="rounded-circle" src="{{ Auth::user()->avatar }}"> {{ Auth::user()->name }}!
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li class="dropdown-item">

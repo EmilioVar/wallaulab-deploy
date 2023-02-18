@@ -25,6 +25,15 @@
                         <p>visitas: {{ $ad->countViews }}</p>
                     </div>
                 </div>
+                @if(auth()->check())
+                <div class="row">
+                    <div class="container">
+                        <div class="col-12 d-flex justify-content-center">
+                            <livewire:favorites-button :ad="$ad"/>
+                        </div>
+                    </div>
+                </div>
+                @endif
         </div>
     </div>
 </div>

@@ -30,6 +30,8 @@ Route::get('ad/{ad}/edit', [AdController::class, 'edit'])->name('ads.edit');
 Route::put('/ad/{ad}/edit', [AdController::class, 'update'])->name('ads.update');
 /* Delete Ad */
 Route::delete('/ads/delete/{ad}', [AdController::class,'delete'])->name('ad.destroy');
+/* Favorites */
+Route::patch('/ad/{ad}/favorite',AdController::class,'favorite')->name('ad.favorite');
 /* Category Ads */
 Route::get('/category/{category:name}/ads', [PublicController::class,'adsByCategory'])->name('category.ads');
 /* Show Ad */

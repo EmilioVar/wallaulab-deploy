@@ -26,6 +26,7 @@ class AdController extends Controller
 
     public function show(Ad $ad)
     {
+        $ad->increment('countViews');
         return view('ad.show', compact('ad'));
     }
 

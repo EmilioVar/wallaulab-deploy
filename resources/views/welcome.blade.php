@@ -53,7 +53,14 @@
                             <div class="card-subtitle mb-2">
                                 <small>{{ $ad->user->name }}</small>
                             </div>
-                            <a href="{{route("ads.show", $ad)}}" class="btn btn-primary">{{ __('Mostrar Más') }}</a>
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="{{route("ads.show", $ad)}}" class="btn btn-primary">{{ __('Mostrar Más') }}</a>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <p>visitas: {{ $ad->countViews }}</p>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

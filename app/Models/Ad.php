@@ -37,6 +37,10 @@ class Ad extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function users_favorite() {
+        return $this->belongsToMany(User::class, 'favorite_pivot', 'ad_id', 'user_id');
+    }
+
     public function images()
     {
         return $this->hasMany(Image::class);

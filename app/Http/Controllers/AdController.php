@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Image;
+use PharIo\Manifest\Url;
 use App\Jobs\ResizeImage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
 {
@@ -32,7 +34,7 @@ class AdController extends Controller
 
     public function edit(Ad $ad)
     {
-        $images = $ad->images()->get('path');
+        $images = $ad->images()->get();
         return view('ad.edit', compact('ad','images'));
     }
 

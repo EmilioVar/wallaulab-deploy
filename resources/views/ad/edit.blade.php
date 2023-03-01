@@ -92,10 +92,14 @@
                                     </textarea>
                                 </div>
                                 <!-- Image Add -->
+                                @foreach($images as $image)
+                                    <img src="{{ Storage::url($image->path) }}" width="200" />
+                                    <form action="{{ route('img.delete', $image->path) }}" method="POST">
+                                    @method('DELETE')
 
-                                {{-- @foreach ($ad->images as $image)
-                                    <img src="{{ $image->getUrl(400, 300) }}" class="d-block w-100" alt="...">
-                                @endforeach --}}
+                                    </form>
+
+                                @endforeach
                         </div>
                         
                         <!-- button -->

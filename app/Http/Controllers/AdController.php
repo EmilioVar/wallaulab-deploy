@@ -44,7 +44,7 @@ class AdController extends Controller
         return back()->with('success','imagen eliminada correctamente');
     }
 
-    public function update(Request $request, $ad)
+    public function update(Request $request, Ad $ad)
     {
         $request->validate([
             'title' => 'required',
@@ -53,15 +53,23 @@ class AdController extends Controller
             'image' => 'nullable|image|max:2048',
         ]);
 
-        
-
-        $ad = Ad::findorFail($ad);
         $ad->update([
             'title' => $request->title,
             'price' => $request->price,
             'body' => $request->body,
         ]);
-        return back();
+
+        if($request->hasFile('images')){
+            foreach ($request->file('images') as $image) {
+                $newFileName = "ads/$ad->id";
+                $newImage = $ad->images()->create([
+                    'path' => $image->store($newFileName, 'public'),
+                ]);
+                Bus::chain([new ResizeImage($newImage->path, 400, 300)])->dispatch();
+            } 
+        }
+
+        return back()->with('success','anuncio actualizado correctamente!');
     }
 
     public function delete(Ad $ad)

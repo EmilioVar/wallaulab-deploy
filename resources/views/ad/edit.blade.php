@@ -47,7 +47,7 @@
                                     <li>Los anuncios subidos no se muestran al público hasta que un revisor los apruebe
                                     </li>
                             </div>
-                            <form method="post" action="{{ route('ads.update', $ad) }}" enctype="multipart/form">
+                            <form method="post" action="{{ route('ads.update', $ad) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="mb-3">
@@ -94,6 +94,11 @@
                                     @enderror
                                     </textarea>
                                 </div>
+
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">{{ __('img') }}</label>
+                                    <input class="form-control" type="file" name="images[]" multiple id="images" >
+                                </div>
                         </div>
                         
                         <!-- button -->
@@ -104,15 +109,20 @@
                         </div>
                         </form>
                         <!-- Image Add -->
-                        @foreach($images as $image)
-                        <img src="{{ Storage::url($image->path) }}" width="200" />
-                        <form action="{{ route('img.delete', ['img'=> $image]) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">borrar</button>
-                        </form>
-
-                    @endforeach
+                        <div class="container">
+                            <div class="row">
+                                @foreach($images as $image)
+                                <div class="col-4">
+                                    <img src="{{ Storage::url($image->path) }}" width="200" />
+                                    <form action="{{ route('img.delete', ['img'=> $image]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">borrar</button>
+                                    </form>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

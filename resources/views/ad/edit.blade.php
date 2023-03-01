@@ -1,4 +1,7 @@
 <x-layout>
+    @if(session('success'))
+    <p class="alert alert-success">{{ session('success') }} </p>
+    @endif
     <x-slot name='title'>Wallaulab - Vende algo</x-slot>
     <div class="container">
         <div class="row justify-content-center">
@@ -91,15 +94,6 @@
                                     @enderror
                                     </textarea>
                                 </div>
-                                <!-- Image Add -->
-                                @foreach($images as $image)
-                                    <img src="{{ Storage::url($image->path) }}" width="200" />
-                                    <form action="{{ route('img.delete', $image->path) }}" method="POST">
-                                    @method('DELETE')
-
-                                    </form>
-
-                                @endforeach
                         </div>
                         
                         <!-- button -->
@@ -109,6 +103,16 @@
                             </button>
                         </div>
                         </form>
+                        <!-- Image Add -->
+                        @foreach($images as $image)
+                        <img src="{{ Storage::url($image->path) }}" width="200" />
+                        <form action="{{ route('img.delete', ['img'=> $image]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">borrar</button>
+                        </form>
+
+                    @endforeach
                     </div>
                 </div>
             </div>

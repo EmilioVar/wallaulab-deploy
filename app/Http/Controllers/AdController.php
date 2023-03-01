@@ -38,6 +38,12 @@ class AdController extends Controller
         return view('ad.edit', compact('ad','images'));
     }
 
+    public function deleteImg(Image $img) {
+        Storage::delete('public/'.$img->path);
+        Image::find($img->id)->delete();
+        return back()->with('success','imagen eliminada correctamente');
+    }
+
     public function update(Request $request, $ad)
     {
         $request->validate([

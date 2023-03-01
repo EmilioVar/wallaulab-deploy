@@ -29,6 +29,7 @@ Route::get('ad/{ad}/edit', [AdController::class, 'edit'])->name('ads.edit');
 /* Update Ad */
 Route::put('/ad/{ad}/edit', [AdController::class, 'update'])->name('ads.update');
 /* IMAGE DELETE */
+Route::delete('ads/delete/{img}', [AdController::class, 'deleteImg'])->name('img.delete');
 /* Delete Ad */
 Route::delete('/ads/delete/{ad}', [AdController::class,'delete'])->name('ad.destroy');
 /* Category Ads */

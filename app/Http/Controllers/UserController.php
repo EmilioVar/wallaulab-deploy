@@ -26,4 +26,11 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function adsByFavorite()
+    {
+        $ads = Auth::user()->ads_favorites()->latest()->paginate(9);
+        
+        return view('ad.by-favorite', compact('ads'));
+    }
 }

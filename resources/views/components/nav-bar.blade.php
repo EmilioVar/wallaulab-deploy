@@ -62,6 +62,9 @@
                                         <a id="userDashboard" class="dropdown-item" href="{{ route('user.dashboard') }}"><i class="bi bi-person"></i> {{ __('Panel') }}</a>
                                     </li>
                                     <li class="dropdown-item">
+                                        <a id="favorites" class="dropdown-item" href="{{ route('ads.favorites') }}"><i class="bi bi-suit-heart-fill"></i> {{ __('Favoritos') }}</a>
+                                    </li>
+                                    <li class="dropdown-item">
                                         <form id="logoutForm" action="{{ route('logout') }}" method="POST">
                                             @csrf
                                         </form>
@@ -71,14 +74,6 @@
                             </li>
                             @if (Auth::user()->is_revisor)
                                 <livewire:ad-revisor-count />
-                                {{-- <li class="d-flex align-items-center">
-                                    <a href="{{ route('revisor.home') }}">
-                                        <span class="fs-7 badge rounded-pill bg-danger">
-                                            <i class="bi bi-bell"></i>
-                                            {{ \App\Models\Ad::ToBeRevisionedCount() }}
-                                        </span>
-                                    </a>
-                                </li> --}}
                             @endif
                         @endguest
                         <div class="d-flex justify-content-center align-items-center flex-lg-row mx-3">

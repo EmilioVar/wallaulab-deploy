@@ -1,6 +1,6 @@
 <x-layout>
-    @if(session('success'))
-    <p class="alert alert-success">{{ session('success') }} </p>
+    @if (session('success'))
+        <p class="alert alert-success">{{ session('success') }} </p>
     @endif
     <x-slot name='title'>Wallaulab - Vende algo</x-slot>
     <div class="container">
@@ -94,13 +94,15 @@
                                     @enderror
                                     </textarea>
                                 </div>
-
+                                <!-- add Images -->
+                                <h2>Añadir Imágenes</h2>
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">{{ __('img') }}</label>
-                                    <input class="form-control" type="file" name="images[]" multiple id="images" >
+                                    <input class="form-control" type="file" name="images[]" multiple id="images"
+                                        onchange="previewImages()">
+                                    <div id="preview"></div>
                                 </div>
                         </div>
-                        
+
                         <!-- button -->
                         <div class="container d-flex justify-content-center my-3">
                             <button id="adCreate" type="submit" class="box-icon btn btn-info">{{ __('Actualizar') }}
@@ -108,18 +110,19 @@
                             </button>
                         </div>
                         </form>
-                        <!-- Image Add -->
+                        <!-- remove Images -->
                         <div class="container">
                             <div class="row">
-                                @foreach($images as $image)
-                                <div class="col-4">
-                                    <img src="{{ Storage::url($image->path) }}" width="200" />
-                                    <form action="{{ route('img.delete', ['img'=> $image]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">borrar</button>
-                                    </form>
-                                </div>
+                                <h2>Eliminar imágenes</h2>
+                                @foreach ($images as $image)
+                                    <div class="col-12 col-md-4 my-3">
+                                        <img src="{{ Storage::url($image->path) }}" width="200" />
+                                        <form action="{{ route('img.delete', ['img' => $image]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">borrar</button>
+                                        </form>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -130,4 +133,41 @@
     </div>
     </div>
     </div>
+    <x-slot:script>
+        <script>
+            // preview images & delete
+            function previewImages() {
+                var preview = document.getElementById('preview');
+                preview.innerHTML = '';
+                var files = document.querySelector('input[type=file]').files;
+
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var reader = new FileReader();
+
+                    reader.onload = function() {
+                        var img = new Image();
+                        img.src = reader.result;
+                        img.style.width = '150px';
+                        img.style.height = 'auto';
+
+                        var container = document.createElement('div');
+                        container.appendChild(img);
+
+                        var deleteButton = document.createElement('button');
+                        deleteButton.classList.add("btn", "btn-danger")
+                        deleteButton.innerHTML = 'Eliminar';
+                        deleteButton.onclick = function() {
+                            container.remove();
+                        };
+                        container.appendChild(deleteButton);
+
+                        preview.appendChild(container);
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
+        </x-slot>
 </x-layout>

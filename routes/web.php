@@ -36,6 +36,8 @@ Route::delete('/ads/delete/{ad}', [AdController::class,'delete'])->name('ad.dest
 Route::get('/category/{category:name}/ads', [PublicController::class,'adsByCategory'])->name('category.ads');
 /* Show Ad */
 Route::get('/ads/{ad}', [AdController::class,'show'])->name("ads.show");
+/* Favorite Ads */
+Route::get('/favorite/ads', [UserController::class, 'adsByFavorite'])->name('ads.favorites');
 
 /* Become Revisor */
 Route::get('revisor/become', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('revisor.become');

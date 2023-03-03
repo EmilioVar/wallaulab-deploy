@@ -38,11 +38,21 @@
                 <div>
                     <a href="{{route('category.ads',$ad->category)}}">#{{$ad->category->name}}</a></div>
                 <div>
-                    <a href="#" class="btn btn-success">{{ __("Comprar") }}</a>
+                    <button onclick="comprar()" href="#" class="btn btn-success">{{ __("Comprar") }}</button>
                 </div>
             </div>
         </div>
-
     </div>
+    <x-slot:script>
+    <script>
+                function comprar() {
+                    Swal.fire(
+                        '¡Has dado a comprar!',
+                        'Este apartado todavía no está finalizado, podría ser un formulario, información del vendedor o un chat... ¡todo un mundo de posibilidades! 🚀',
+                        'info'
+                    )
+                }
+                </script>
+</x-slot>
 
 </x-layout>

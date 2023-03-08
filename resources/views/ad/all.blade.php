@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 text-right m-text-center">
-                    <h1>{{ __('Últimos 6 anuncios añadidos') }}:</h1>
+                    <h1>{{ __('Todos los anuncios') }}:</h1>
                 </div>
             </div>
         </div>
@@ -42,14 +42,8 @@
                 {{ __('o') }} <a href="{{ route('home') }}" class="btn btn-primary">{{ __('Vuelve a la home') }}</a>
             </div>
             @endforelse
+            {{ $ads->links() }}
     </section>
-    <div class="contianer">
-        <div class="row">
-            <div class="col-12 my-3 d-flex justify-content-center">
-                <a class="btn btn-success" href="{{ route ('ads.all') }}"> Mostrar todos </a>
-            </div>
-        </div>
-    </div>
     <!-- Scripts -->
     <x-slot:script>
         <script>

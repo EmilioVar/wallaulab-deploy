@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
+use App\Models\User;
 use App\Models\Image;
 use PharIo\Manifest\Url;
 use App\Jobs\ResizeImage;
@@ -72,9 +73,20 @@ class AdController extends Controller
         return back()->with('success','anuncio actualizado correctamente!');
     }
 
-    public function delete(Ad $ad)
+    public function destroy(Ad $ad)
     {
+        $user = Auth::user();
+        foreach ($ad->users_favorite()->get() as $rel) {
+            $ad->users_favorite()->detach($rel);
+        }
         $ad->delete();
-        return back()->with('¡Anuncio eliminado correctamente!');
+
+        return back()->with('success','¡Anuncio eliminado correctamente!');
+    }
+
+    public function all() {
+        $ads = Ad::where('is_accepted', true)->paginate(6);
+        
+        return view('ad.all', compact('ads'));
     }
 }

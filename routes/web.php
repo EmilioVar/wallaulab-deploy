@@ -29,13 +29,15 @@ Route::get('ad/{ad}/edit', [AdController::class, 'edit'])->name('ads.edit');
 /* Update Ad */
 Route::put('/ad/{ad}/edit', [AdController::class, 'update'])->name('ads.update');
 /* IMAGE DELETE */
-Route::delete('ads/delete/{img}', [AdController::class, 'deleteImg'])->name('img.delete');
+Route::delete('ads/image/{img}', [AdController::class, 'deleteImg'])->name('img.delete');
 /* Delete Ad */
-Route::delete('/ads/delete/{ad}', [AdController::class,'delete'])->name('ad.destroy');
+Route::delete('/ads/delete/{ad}', [AdController::class,'destroy'])->name('ad.destroy');
 /* Category Ads */
 Route::get('/category/{category:name}/ads', [PublicController::class,'adsByCategory'])->name('category.ads');
 /* Show Ad */
 Route::get('/ads/{ad}', [AdController::class,'show'])->name("ads.show");
+/* All Ads */
+Route::get('/ads', [AdController::class,'all'])->name('ads.all');
 /* Favorite Ads */
 Route::get('/favorite/ads', [UserController::class, 'adsByFavorite'])->name('ads.favorites');
 

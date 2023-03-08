@@ -1,9 +1,11 @@
 <x-layout>
+    @if(session()->has('success'))
+        <p class="alert alert-success">{{ session()->get('success') }}</p>
+    @endif
     <h1 class="p-4">¡Bienvenido {{ Auth::user()->name }}!</h1>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img src="{{ Auth::user()->avatar }}" width="200px">
                 <h2>Tienes subidos {{ $adsCount }} anuncios 🎉</h2>
             </div>
             @forelse($ads as $ad)
@@ -29,7 +31,7 @@
                             </div>
                             <a href="{{ route('ads.show', $ad) }}" class="btn btn-primary">{{ __('Mostrar Más') }}
                             </a>
-                            <a href="{{ route('ads.edit', $ad) }}" class="btn btn-primary">{{ __('Editar') }}
+                            <a href="{{ route('ads.edit', $ad) }}" class="btn btn-info">{{ __('Editar') }}
                             </a>
                             <button onclick="swal()" class="btn btn-danger" type="submit">borrar</button>
                             <form id="adDestroy" action="{{ route('ad.destroy', $ad) }}" method="post">

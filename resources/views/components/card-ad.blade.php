@@ -25,7 +25,7 @@
                         <p>visitas: {{ $ad->countViews }}</p>
                     </div>
                 </div>
-                @if(auth()->check())
+                @if(auth()->check() && $ad->user_id !== auth()->user()->id)
                 <div class="row">
                     <div class="container">
                         <div class="col-12 d-flex justify-content-center">

@@ -29,11 +29,16 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        $uploadedFile = $input['avatar'];
-        $path = $uploadedFile->store('avatars', 'public');
+        if(isset($input['avatar'])) {
+            $uploadedFile = $input['avatar'];
+            $path = Storage::url($uploadedFile->store('avatars', 'public'));
+        } else {
+            $path = null;
+        }
+
         return User::create([
             'name' => $input['name'],
-            'avatar' => Storage::url($path),
+            'avatar' => $path,
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);

@@ -19,5 +19,6 @@
         "flag-icon-css": "^4.1.7",
         "flag-icons": "^6.6.6",
         "sweetalert2": "^11.7.1"
-    }
+    },
+    "engines": { "node": "18.x" }
 }

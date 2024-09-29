@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-            $categories  = Category::all() ?? [];
-
+            //$categories  = Category::all() ?? [];
+            $categories = collect([]);
 
             View::share('categories', $categories);
         /*}   catch (\Throwable $th) {

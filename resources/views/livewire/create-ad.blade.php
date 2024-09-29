@@ -32,11 +32,11 @@
             <li>No refresca la página mediante la tecnología de livewire</li>
             <li>Los anuncios subidos no se muestran al público hasta que un revisor los apruebe</li>
     </div>
-    <form wire:submit.prevent="store">
+    <form wire:submit="store">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">{{ __('Título') }}</label>
-            <input wire:model="title" type="text" class="form-control 
+            <input wire:model.live="title" type="text" class="form-control 
         @error('title') is-invalid @enderror">
             @error('title')
                 {{ $message }}
@@ -44,7 +44,7 @@
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">{{ __('Categoría') }}</label>
-            <select wire:model.defer="category" class="form-control">
+            <select wire:model="category" class="form-control">
                 <option value="" @error('category') is-invalid @enderror>{{ __('Selecciona una Categoría') }}
                 </option>
                 @error('category')
@@ -58,7 +58,7 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">{{ __('Precio') }}</label>
-            <input wire:model="price" type="number" class="form-control 
+            <input wire:model.live="price" type="number" class="form-control 
         @error('price') is-invalid @enderror">
             @error('price')
                 {{ $message }}
@@ -67,7 +67,7 @@
 
         <div class="mb-3">
             <label for="body" class="form-label">{{ __('Descripción') }}</label>
-            <textarea wire:model="body" cols="30" rows="15"
+            <textarea wire:model.live="body" cols="30" rows="15"
                 class="form-control 
         @error('body') is-invalid @enderror"></textarea>
             @error('body')
@@ -78,7 +78,7 @@
         <!-- Image Add -->
 
         <div class="mb-3">
-            <input wire:model="temporary_images" type="file" name="images" multiple
+            <input wire:model.live="temporary_images" type="file" name="images" multiple
                 class="form-control shadow @error('temporary_images.*') is-invalid @enderror">
             @error('temporary_images.*')
                 <p class="text-danger mt-2">{{ $message }}</p>

@@ -78,7 +78,7 @@ class CreateAd extends Component
 
         session()->flash('message', 'success');
         $this->cleanForm();
-        $this->emit('adCreated');
+        $this->dispatch('adCreated');
     }
 
     public function updated($propertyName)
